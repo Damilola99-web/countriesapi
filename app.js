@@ -34,7 +34,7 @@ fetch('https://restcountries.com/v3.1/all')
     function searchingNations(e){
         let nationsvalue = '';
         console.log(e.target.value)
-        const filtered = result.filter((objects)=> objects.name.common.toLowerCase().includes(e.target.value))
+        const filtered = result.filter((objects)=> objects.name.common.toLowerCase().includes(e.target.value.toLowerCase()))
         console.log(filtered)
         filtered.map(objectsr => {
             // console.log(objectsr)
