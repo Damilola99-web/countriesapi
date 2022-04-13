@@ -1,6 +1,7 @@
 let nations = document.querySelector('.nations');
 let input = document.querySelector('input');
 let select = document.querySelector('select');
+let countryEl = document.querySelectorAll('.country')
 
 nations.innerHTML = `
                         <div class="animation">
@@ -16,7 +17,7 @@ fetch('https://restcountries.com/v3.1/all')
         result.map(objects => {
             // console.log(objects)
             let eachnation = `
-                <div class="country bacc">
+                <div class="country">
                     <img src=${objects.flags.png} alt="" class="countryimg">
                     <h2 class="countryname">${objects.name.common}</h2>
                     <h3 class="population">Population: ${objects.population}</h3>
@@ -38,7 +39,7 @@ fetch('https://restcountries.com/v3.1/all')
         filtered.map(objectsr => {
             // console.log(objectsr)
             let eachnation = `
-                <div class="country bacc">
+                <div class="country">
                     <img src=${objectsr.flags.png} alt="" class="countryimg">
                     <h2 class="countryname">${objectsr.name.common}</h2>
                     <h3 class="population">Population: ${objectsr.population}</h3>
@@ -62,12 +63,12 @@ fetch('https://restcountries.com/v3.1/all')
         filtered.map(objectsr => {
             // console.log(objectsr)
             let eachnation = `
-                <div class="country bacc">
+                <div class="country">
                     <img src=${objectsr.flags.png} alt="" class="countryimg">
-                    <h2 class="countryname">${objectsr.name.common}</h2>
-                    <h3 class="population">Population: ${objectsr.population}</h3>
-                    <h3 class="region">Region: ${objectsr.region}</h3>
-                    <h3 class="capital">Capital: ${objectsr.capital}</h3>
+                    <h2 class="countryname"><span>${objectsr.name.common}</span></h2>
+                    <h3 class="population">Population: <span>${objectsr.population}</span></h3>
+                    <h3 class="region">Region: <span>${objectsr.region}</span></h3>
+                    <h3 class="capital">Capital: <span>${objectsr.capital}</span></h3>
 
 
                 </div>`;
@@ -87,10 +88,10 @@ fetch('https://restcountries.com/v3.1/all')
 
 let theme = document.querySelector('.themeChanger');
 theme.addEventListener('click', (e)=> {
-    // document.body.classList.toggle('theme');
+    document.body.classList.toggle('theme');
     document.querySelector('#idd').classList.toggle('none');
     document.querySelector('#id').classList.toggle('none');
-    document.querySelector('*').classList.toggle('bacc');
+    // document.querySelector('*').classList.toggle('bacc');
     // document.querySelector('*').classList.toggle('opp');
     // document.querySelector('*').classList.toggle('theme');
 });
