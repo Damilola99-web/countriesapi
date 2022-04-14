@@ -20,9 +20,9 @@ fetch('https://restcountries.com/v3.1/all')
                 <div class="country">
                     <img src=${objects.flags.png} alt="" class="countryimg">
                     <h2 class="countryname">${objects.name.common}</h2>
-                    <h3 class="population">Population: ${objects.population}</h3>
-                    <h3 class="region">Region: ${objects.region}</h3>
-                    <h3 class="capital">Capital: ${objects.capital}</h3>
+                    <h3 class="population">Population: <span>${objects.population}</span></h3>
+                    <h3 class="region">Region: <span>${objects.region}</span></h3>
+                    <h3 class="capital">Capital: <span>${objects.capital}</span></h3>
 
 
                 </div>`;
@@ -42,9 +42,9 @@ fetch('https://restcountries.com/v3.1/all')
                 <div class="country">
                     <img src=${objectsr.flags.png} alt="" class="countryimg">
                     <h2 class="countryname">${objectsr.name.common}</h2>
-                    <h3 class="population">Population: ${objectsr.population}</h3>
-                    <h3 class="region">Region: ${objectsr.region}</h3>
-                    <h3 class="capital">Capital: ${objectsr.capital}</h3>
+                    <h3 class="population">Population: <span>${objectsr.population}</span></h3>
+                    <h3 class="region">Region: <span>${objectsr.region}</span></h3>
+                    <h3 class="capital">Capital: <span>${objectsr.capital}</span></h3>
 
 
                 </div>`;
@@ -65,7 +65,7 @@ fetch('https://restcountries.com/v3.1/all')
             let eachnation = `
                 <div class="country">
                     <img src=${objectsr.flags.png} alt="" class="countryimg">
-                    <h2 class="countryname"><span>${objectsr.name.common}</span></h2>
+                    <h2 class="countryname">${objectsr.name.common}</h2>
                     <h3 class="population">Population: <span>${objectsr.population}</span></h3>
                     <h3 class="region">Region: <span>${objectsr.region}</span></h3>
                     <h3 class="capital">Capital: <span>${objectsr.capital}</span></h3>
@@ -79,10 +79,17 @@ fetch('https://restcountries.com/v3.1/all')
         nations.innerHTML = nationsvalue;
         
     }
+    const timeoutClick = ()=> {
+        setTimeout((e)=> {
+            console.log('clicked me')
+        }, 5000)
+        countryEl.addEventListener('click', timeoutClick)
+    }
 
     displayingNations()
     input.addEventListener('input', searchingNations);
     select.addEventListener('change', filterNations);
+   
 
 });
 
@@ -91,23 +98,7 @@ theme.addEventListener('click', (e)=> {
     document.body.classList.toggle('theme');
     document.querySelector('#idd').classList.toggle('none');
     document.querySelector('#id').classList.toggle('none');
-    // document.querySelector('*').classList.toggle('bacc');
-    // document.querySelector('*').classList.toggle('opp');
-    // document.querySelector('*').classList.toggle('theme');
-});
-
-// function getCountry(country) {
-//     console.log(country)
-// }
-
-// .catch(console.error();)
-// setTimeout(() => {
-//     let eachnation = document.querySelectorAll('.country');
-//     function eachNationData(e) {
-//         console.log(e)
-//     }
-//     for (let i = 0; i < eachnation.length; i++) {
-//         eachnation[i].addEventListener('click', eachNationData);
-//     }
-    
-// }, 10000);
+    document.querySelector('#dark').classList.toggle('none');
+    document.querySelector('#sun').classList.toggle('none');
+ 
+})

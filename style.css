@@ -85,8 +85,14 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-shadow: 1px 1px 2px #7e7e7e, -1px -1px 2px #7e7e7e;
-          box-shadow: 1px 1px 2px #7e7e7e, -1px -1px 2px #7e7e7e;
+  -webkit-box-shadow: 0 4px 8px 0 black;
+          box-shadow: 0 4px 8px 0 black;
+}
+
+.header h3 {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
 
 .themeChanger {
@@ -102,6 +108,8 @@ body {
       justify-content: space-around;
   cursor: pointer;
   border-radius: 7px;
+  -webkit-box-shadow: 0 4px 8px 0 black;
+          box-shadow: 0 4px 8px 0 black;
 }
 
 .select {
@@ -112,12 +120,12 @@ body {
   background-color: inherit;
   padding: 5px 20px;
   border: none;
-  -webkit-box-shadow: 1px 1px 2px #7e7e7e, -1px -1px 2px #7e7e7e;
-          box-shadow: 1px 1px 2px #7e7e7e, -1px -1px 2px #7e7e7e;
+  -webkit-box-shadow: 0 4px 8px 0 black;
+          box-shadow: 0 4px 8px 0 black;
 }
 
-option {
-  background-color: bisque !important;
+.option {
+  background-color: transparent !important;
   color: black;
 }
 
@@ -143,8 +151,9 @@ input {
   background-color: inherit;
   border-radius: 8px;
   outline: none;
-  -webkit-box-shadow: 1px 1px 2px #7e7e7e, -1px -1px 2px #7e7e7e;
-          box-shadow: 1px 1px 2px #7e7e7e, -1px -1px 2px #7e7e7e;
+  color: inherit;
+  -webkit-box-shadow: 0 4px 8px 0 black;
+          box-shadow: 0 4px 8px 0 black;
   border: none;
 }
 
@@ -188,21 +197,30 @@ input:focus {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  -webkit-box-shadow: 1px 1px 2px #7e7e7e, -1px -1px 2px #7e7e7e;
-          box-shadow: 1px 1px 2px #7e7e7e, -1px -1px 2px #7e7e7e;
+  -webkit-box-shadow: 0 4px 8px 0 black;
+          box-shadow: 0 4px 8px 0 black;
   border-radius: 15px;
-  height: 540px;
+  height: 420px;
   cursor: pointer;
 }
 
 .country img {
   width: 100%;
+  height: 200px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
 }
 
-.country span {
-  font-weight: 600;
+.country h2 {
+  font-size: 25px;
+}
+
+.country h3 {
+  font-size: 17px;
+}
+
+.country h3 span {
+  font-size: 20px;
 }
 
 .country .countryname {
@@ -290,13 +308,16 @@ input:focus {
         -ms-flex-align: start;
             align-items: flex-start;
   }
-  .searchFilter input {
+  .searchFilter .search {
+    width: 100%;
+  }
+  .searchFilter .search input {
     width: 100%;
     height: 60px;
     margin-bottom: 30px;
   }
-  .searchFilter select {
-    width: 40%;
+  .searchFilter .select {
+    width: 50%;
     height: 60px;
   }
   .header h3 {
@@ -375,5 +396,27 @@ input:focus {
 .opp {
   background-color: white;
   color: black;
+}
+
+.themeChanger {
+  width: 200px;
+  height: 47px;
+}
+
+.themeChanger img {
+  width: 24px;
+  height: 24px;
+}
+
+.search {
+  position: relative;
+}
+
+.search img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  left: 30px;
 }
 /*# sourceMappingURL=style.css.map */
