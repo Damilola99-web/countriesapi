@@ -1,7 +1,7 @@
 let nations = document.querySelector('.nations');
 let input = document.querySelector('input');
 let select = document.querySelector('select');
-let countryEl = document.querySelectorAll('.country')
+let countryEl = document.querySelector('.country')
 
 nations.innerHTML = `
                         <div class="animation">
@@ -11,6 +11,7 @@ nations.innerHTML = `
 fetch('https://restcountries.com/v3.1/all')
 .then(res => res.json())
 .then(result => {
+    result.sort((a, b) => (a.name.common > b.name.common) ? 1 : -1)
     // console.log(result)
     function displayingNations(){
         let nationsvalue = '';
@@ -26,11 +27,12 @@ fetch('https://restcountries.com/v3.1/all')
 
 
                 </div>`;
-            nationsvalue += eachnation;   
+            nationsvalue += eachnation; 
+            
 
         })
         nations.innerHTML = nationsvalue;
-    }
+    };
     function searchingNations(e){
         let nationsvalue = '';
         console.log(e.target.value)
@@ -79,20 +81,12 @@ fetch('https://restcountries.com/v3.1/all')
         nations.innerHTML = nationsvalue;
         
     }
-    const timeoutClick = ()=> {
-        setTimeout((e)=> {
-            console.log('clicked me')
-        }, 5000)
-        countryEl.addEventListener('click', timeoutClick)
-    }
-
     displayingNations()
     input.addEventListener('input', searchingNations);
     select.addEventListener('change', filterNations);
    
 
-});
-
+})
 let theme = document.querySelector('.themeChanger');
 theme.addEventListener('click', (e)=> {
     document.body.classList.toggle('theme');
