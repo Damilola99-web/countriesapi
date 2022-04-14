@@ -57,6 +57,40 @@ fetch('https://restcountries.com/v3.1/all')
         nations.innerHTML = nationsvalue;
         
     }
+    function ev(e) {
+        let nationsvalue = '';
+        const filtered = result.filter((objects)=> objects.name.common.toLowerCase().includes(e.currentTarget.childNodes[3].innerHTML.toLowerCase()))
+        // console.log(filtered)
+        console.log(e.currentTarget.childNodes[3].innerHTML)
+        filtered.map(objectsr => {
+            let eachnation = `
+                <div class="country">
+                    <img src=${objectsr.flags.png} alt="" class="countryimg">
+                    <h2 class="countryname">${objectsr.name.common}</h2>
+                    <h3 class="population">Population: <span>${objectsr.population}</span></h3>
+                    <h3 class="region">Region: <span>${objectsr.region}</span></h3>
+                    <h3 class="capital">Capital: <span>${objectsr.capital}</span></h3>
+
+
+                </div>`;
+            nationsvalue += eachnation;   
+                
+
+        })
+        nations.innerHTML = nationsvalue;
+    }
+    setInterval(() => {
+        let allcont = document.querySelectorAll('.country');
+        for (const each of allcont) {
+            if (each) {
+                each.addEventListener('click', ev)
+            } else {
+                console.log('first')
+            }
+        }
+        
+        
+    }, 1000);
     function filterNations(e){
         let nationsvalue = '';
         console.log(e.target.value)
@@ -81,12 +115,14 @@ fetch('https://restcountries.com/v3.1/all')
         nations.innerHTML = nationsvalue;
         
     }
+           
     displayingNations()
     input.addEventListener('input', searchingNations);
     select.addEventListener('change', filterNations);
-   
+    
 
 })
+.catch(err => {nations.innerHTML = err});
 let theme = document.querySelector('.themeChanger');
 theme.addEventListener('click', (e)=> {
     document.body.classList.toggle('theme');
@@ -96,3 +132,5 @@ theme.addEventListener('click', (e)=> {
     document.querySelector('#sun').classList.toggle('none');
  
 })
+
+
