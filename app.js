@@ -35,9 +35,9 @@ fetch('https://restcountries.com/v3.1/all')
     };
     function searchingNations(e){
         let nationsvalue = '';
-        console.log(e.target.value)
+        // console.log(e.target.value)
         const filtered = result.filter((objects)=> objects.name.common.toLowerCase().includes(e.target.value.toLowerCase()))
-        console.log(filtered)
+        // console.log(filtered)
         filtered.map(objectsr => {
             // console.log(objectsr)
             let eachnation = `
@@ -61,7 +61,7 @@ fetch('https://restcountries.com/v3.1/all')
         let nationsvalue = '';
         const filtered = result.filter((objects)=> objects.name.common.toLowerCase().includes(e.currentTarget.childNodes[3].innerHTML.toLowerCase()))
         // console.log(filtered)
-        console.log(e.currentTarget.childNodes[3].innerHTML)
+        // console.log(e.currentTarget.childNodes)
         filtered.map(objectsr => {
             let eachnation = `
                 <div class="country">
