@@ -39,7 +39,7 @@ fetch('https://restcountries.com/v3.1/all')
         const filtered = result.filter((objects)=> objects.name.common.toLowerCase().includes(e.target.value.toLowerCase()))
         // console.log(filtered)
         filtered.map(objectsr => {
-            // console.log(objectsr)
+            console.log(objectsr)
             let eachnation = `
                 <div class="country">
                     <img src=${objectsr.flags.png} alt="" class="countryimg">
@@ -47,6 +47,7 @@ fetch('https://restcountries.com/v3.1/all')
                     <h3 class="population">Population: <span>${objectsr.population}</span></h3>
                     <h3 class="region">Region: <span>${objectsr.region}</span></h3>
                     <h3 class="capital">Capital: <span>${objectsr.capital}</span></h3>
+                    
 
 
                 </div>`;
@@ -58,21 +59,30 @@ fetch('https://restcountries.com/v3.1/all')
         
     }
     function ev(e) {
+        document.querySelector('.goback').style.display = 'flex'
+        document.querySelector('.goback').addEventListener('click', ()=> document.querySelector('.goback').style.display = 'none')
+        document.querySelector('select').classList.add('none')
+        document.querySelector('.goback').addEventListener('click', ()=> document.querySelector('select').classList.remove('none'))
+        document.querySelector('.search').classList.add('none')
+        document.querySelector('.goback').addEventListener('click', ()=> document.querySelector('.search').classList.remove('none'))
         let nationsvalue = '';
         const filtered = result.filter((objects)=> objects.name.common.toLowerCase().includes(e.currentTarget.childNodes[3].innerHTML.toLowerCase()))
         // console.log(filtered)
         // console.log(e.currentTarget.childNodes)
         filtered.map(objectsr => {
             let eachnation = `
-                <div class="country">
+                <div class="countrydetails">
                     <img src=${objectsr.flags.png} alt="" class="countryimg">
-                    <h2 class="countryname">${objectsr.name.common}</h2>
-                    <h3 class="population">Population: <span>${objectsr.population}</span></h3>
-                    <h3 class="region">Region: <span>${objectsr.region}</span></h3>
-                    <h3 class="capital">Capital: <span>${objectsr.capital}</span></h3>
+                    <div class = 'datadetais' >
+                        <h3 class="countryname">Common Name : ${objectsr.name.common}</h3>
+                        <h3 class="countryname">Official Name : ${objectsr.name.official}</h3>
+                        <h3 class="population">Population : <span>${objectsr.population}</span></h3>
+                        <h3 class="region">Region : <span>${objectsr.region}</span></h3>
+                        <h3 class="capital">Capital : <span>${objectsr.capital}</span></h3>
+                        <h3 class="currency">Subregion : <span>${objectsr.subregion} </span></h3>
 
-
-                </div>`;
+                    </div>
+                </div>`;    
             nationsvalue += eachnation;   
                 
 
@@ -83,7 +93,8 @@ fetch('https://restcountries.com/v3.1/all')
         let allcont = document.querySelectorAll('.country');
         for (const each of allcont) {
             if (each) {
-                each.addEventListener('click', ev)
+                each.addEventListener('click', ev);
+                
             } else {
                 console.log('first')
             }
@@ -95,7 +106,7 @@ fetch('https://restcountries.com/v3.1/all')
         let nationsvalue = '';
         console.log(e.target.value)
         const filtered = result.filter((objects)=> objects.continents[0].toLowerCase().includes(e.target.value.toLowerCase()))
-        console.log(filtered)
+        // console.log(filtered)
         filtered.map(objectsr => {
             // console.log(objectsr)
             let eachnation = `
@@ -117,12 +128,18 @@ fetch('https://restcountries.com/v3.1/all')
     }
            
     displayingNations()
+    document.querySelector('.goback').addEventListener('click', displayingNations)
     input.addEventListener('input', searchingNations);
     select.addEventListener('change', filterNations);
     
 
 })
-.catch(err => {nations.innerHTML = err});
+.catch(err => {
+    if (err == 'TypeError: Failed to fetch') {
+        nations.innerHTML = `<h3>No internet ! Please Check your connection and try again.</h3>`
+    }
+    
+});
 let theme = document.querySelector('.themeChanger');
 theme.addEventListener('click', (e)=> {
     document.body.classList.toggle('theme');

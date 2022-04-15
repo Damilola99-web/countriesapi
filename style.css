@@ -299,6 +299,17 @@ input:focus {
         -ms-flex-pack: center;
             justify-content: center;
   }
+  .countrydetails {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .countrydetails img {
+    width: 80vw;
+    margin-right: 0px;
+    margin-bottom: 30px;
+  }
   .searchFilter {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -418,5 +429,42 @@ input:focus {
   position: absolute;
   top: 20px;
   left: 30px;
+}
+
+.countrydetails {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80vw;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.countrydetails img {
+  margin-right: 40px;
+}
+
+.goback {
+  background-color: transparent;
+  -webkit-box-shadow: 0 4px 8px 0 black;
+          box-shadow: 0 4px 8px 0 black;
+  width: 150px;
+  height: 50px;
+  cursor: pointer;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

@@ -113,6 +113,7 @@ input {
     align-content: center;
     justify-content: center;
     margin-bottom: 90px;
+    
 }
 .country {
     width: 100%;
@@ -195,6 +196,14 @@ input {
         grid-template-rows: auto;
         align-content: center;
         justify-content: center;
+    }
+    .countrydetails {
+        flex-direction: column;
+        img {
+            width: 80vw;
+            margin-right: 0px;
+            margin-bottom: 30px;
+        }
     }
     .searchFilter {
         flex-direction: column;
@@ -286,4 +295,27 @@ input {
         top: 20px;
         left: 30px;
     }
+}
+.countrydetails {
+    display: flex;
+    width: 80vw;
+    align-items: center;
+    height: 100%;
+    justify-content: space-around;   
+    img {
+        margin-right: 40px;
+    }    
+}
+.goback {
+    background-color: transparent;
+    box-shadow: 0 4px 8px 0 rgb(0, 0, 0) / 20%;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    // display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
 }
